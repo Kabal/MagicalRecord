@@ -367,7 +367,7 @@ NSDate * dateFromString(NSString *value, NSString *format)
     [formatter setDateFormat:format];
     
     NSDate *parsedDate = [formatter dateFromString:value];
-#ifndef NS_AUTOMATED_REFCOUNT_UNAVAILABLE
+#ifndef MR_USE_ARC
     [formatter autorelease];
 #endif
     

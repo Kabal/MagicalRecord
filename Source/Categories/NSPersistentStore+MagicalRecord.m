@@ -22,7 +22,7 @@ static NSPersistentStore *defaultPersistentStore_ = nil;
 
 + (void) MR_setDefaultPersistentStore:(NSPersistentStore *) store
 {
-#ifndef NS_AUTOMATED_REFCOUNT_UNAVAILABLE
+#ifndef MR_USE_ARC
     [store retain];
     [defaultPersistentStore_ release];
 #endif

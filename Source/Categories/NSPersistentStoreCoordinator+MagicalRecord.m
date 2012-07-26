@@ -23,7 +23,7 @@ static NSPersistentStoreCoordinator *defaultCoordinator_ = nil;
 
 + (void) MR_setDefaultStoreCoordinator:(NSPersistentStoreCoordinator *)coordinator
 {
-#ifndef NS_AUTOMATED_REFCOUNT_UNAVAILABLE
+#ifndef MR_USE_ARC
     [coordinator retain];
     [defaultCoordinator_ release];
 #endif
@@ -126,12 +126,12 @@ static NSPersistentStoreCoordinator *defaultCoordinator_ = nil;
 + (NSPersistentStoreCoordinator *) MR_coordinatorWithInMemoryStore
 {
 	NSManagedObjectModel *model = [NSManagedObjectModel MR_defaultManagedObjectModel];
-	NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+	NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
 
-    [psc MR_addInMemoryStore];
+    [coordinator MR_addInMemoryStore];
     MR_AUTORELEASE(coordinator);
 
-    return psc;
+    return coordinator;
 }
 
 - (NSPersistentStore *) MR_addInMemoryStore
