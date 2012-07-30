@@ -38,12 +38,12 @@ static NSManagedObjectModel *defaultManagedObjectModel_ = nil;
 }
 
 //deprecated
-+ (NSManagedObjectModel *) MR_newManagedObjectModel 
-{
-    NSManagedObjectModel *model = [self MR_mergedObjectModelFromMainBundle];
-    MR_AUTORELEASE(model);
-    return model;
-}
+//+ (NSManagedObjectModel *) MR_newManagedObjectModel 
+//{
+//    NSManagedObjectModel *model = [self MR_mergedObjectModelFromMainBundle];
+//    MR_AUTORELEASE(model);
+//    return model;
+//}
 
 + (NSManagedObjectModel *) MR_newModelNamed:(NSString *) modelName inBundleNamed:(NSString *) bundleName
 {
